@@ -5,6 +5,6 @@ FROM ubuntu:latest
 COPY script.sh /home/myapp/script.sh
 
 # Añadir el archivo comprimido y descomprimirlo en el contenedor
-ADD archive.tar.gz /home/myapp/
+ADD examen.tar /home/myapp/
 
 
