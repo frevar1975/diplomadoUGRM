@@ -1,0 +1,25 @@
+Con el Dockerfile creado, ahora construirás la imagen Docker.
+
+- Abre tu terminal o línea de comandos.
+- Navega al directorio donde tienes tu Dockerfile y los archivos locales.
+- Ejecuta el comando de construcción de Docker:
+
+```sh
+docker build -t my-app-image .
+```
+
+**Paso 4: Verificar los resultados**
+
+Una vez que la imagen está construida, puedes correr un contenedor basado en ella y verificar que los archivos se hayan añadido correctamente.
+
+```sh
+docker run --name my-container -it my-app-image bash
+```
+
+Ahora estás en la terminal del contenedor. Puedes comprobar:
+
+- Que `script.sh` esté en `/home/myapp/`.
+- Que `archive.tar.gz` haya sido descomprimido en `/home/myapp/`.
+- Que `example.txt` se haya descargado de la URL proporcionada a `/home/myapp/`.
+
+**Analogía:**

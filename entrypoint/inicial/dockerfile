@@ -1,0 +1,11 @@
+# Utilizar una imagen base
+FROM ubuntu
+
+# Instalar Apache (paso opcional, solo para demostración)
+RUN apt-get update && apt-get install -y apache2
+
+# Define un punto de entrada que siempre se ejecutará
+ENTRYPOINT ["/usr/sbin/apache2ctl"]
+
+# Proporciona argumentos por defecto que serán pasados al ENTRYPOINT
+CMD ["-D", "FOREGROUND"]

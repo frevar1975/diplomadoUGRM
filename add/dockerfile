@@ -1,0 +1,10 @@
+# Usar una imagen base, por ejemplo, Ubuntu
+FROM ubuntu:latest
+
+# Copiar el archivo de script desde tu directorio local al contenedor
+COPY script.sh /home/myapp/script.sh
+
+# Añadir el archivo comprimido y descomprimirlo en el contenedor
+ADD archive.tar.gz /home/myapp/
+
+
