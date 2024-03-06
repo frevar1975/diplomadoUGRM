@@ -1,0 +1,16 @@
+# Dockerfile
+
+# Use an official Ruby runtime as a parent image
+FROM ruby:2.7-slim
+
+# Set the working directory in the container
+WORKDIR /
+
+# Copy the current directory contents into the container at /usr/src/app
+COPY . .
+
+# No need to run bundle install since there are no gems
+# RUN bundle install
+
+# Run app.rb when the container launches
+ENTRYPOINT ["ruby", "app.rb"]

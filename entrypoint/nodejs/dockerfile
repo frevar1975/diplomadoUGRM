@@ -1,0 +1,13 @@
+# Use an official Node.js runtime as a parent image
+FROM node:current-slim
+
+# Set the working directory in the container
+WORKDIR /
+
+# Copy the current directory contents into the container at /usr/src/app
+COPY . .
+
+
+
+# Run app.js when the container launches
+ENTRYPOINT ["node", "app.js"]

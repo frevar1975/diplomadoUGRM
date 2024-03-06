@@ -9,7 +9,8 @@ WORKDIR /
 # Copy the current directory contents into the container at /usr/src/app
 COPY . .
 
-
+# No need to run pip install since there are no requirements
+# RUN pip install --no-cache-dir -r requirements.txt
 
 # Run app.py when the container launches
 ENTRYPOINT ["python", "app.py"]
