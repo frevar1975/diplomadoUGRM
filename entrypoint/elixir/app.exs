@@ -1,3 +1,3 @@
 # app.exs
 
-IO.puts("Hello, World!")
+IO.puts("Hello, me llamo freddy!")

@@ -1,0 +1,4 @@
+FROM perl:5.34
+COPY . /
+WORKDIR /
+CMD [ "perl", "./your-daemon-or-script.pl" ]cls
