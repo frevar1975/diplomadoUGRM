@@ -1,0 +1,14 @@
+create database libritos;
+use libritos;
+CREATE TABLE libros (
+    id int AUTO_INCREMENT,
+    title varchar(255),
+    cover varchar(255),
+    id_user varchar(255),
+    PRIMARY KEY(id)
+);
+
+INSERT INTO libros (title, cover, id_user) VALUES
+('Harry Potter 5', 'hp-5.jpg', '6060f25f6d6b070ef34d7b2a'),
+('Harry Potter 4', 'hp-4.jpg', '6060f25f6d6b070ef34d7b2a'),
+('Harry Potter 3', 'hp-3.jpg', '6060f25f6d6b070ef34d7b2a')

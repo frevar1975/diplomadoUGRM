@@ -1,0 +1,77 @@
+version: "3.2"
+services:
+  php:
+    container_name: 'php2'
+    build: './api_libros/php/'
+    networks:
+      - backend
+    volumes:
+      - ./api_libros/public_html/:/var/www/html/
+  apache:
+    container_name: 'apache2'
+    build: './api_libros/apache/'
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "8080:80"
+    volumes:
+      - ./api_libros/public_html/:/var/www/html/
+  mysql:
+    container_name: 'mysql2'
+    image: mysql:5.6.40
+    networks:
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+  node:
+    container_name: 'api_auth'
+    build: 'api_usuarios'
+    networks:
+      - frontend
+      - backend
+    volumes:
+      - /api_usuarios:/usr/src/app/
+    ports:
+      - "3001:3001"
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123qwe
+      MONGO_INITDB_DATABASE: plantitas
+    ports:
+      - 27017:27017
+    networks:
+      - frontend
+      - backend
+
+  mongo-express: 
+    image: mongo-express
+    restart: always
+    container_name: mongodb-ui
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 123qwe
+    networks:
+      - frontend
+      - backend
+
+  test:
+    container_name: 'test'
+    build: './test/'
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "5555:5555"
+networks:
+  frontend:
+  backend:
